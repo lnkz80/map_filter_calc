@@ -3,21 +3,23 @@ const operators = ['/' ,'*', '-', '+', '='];
 const screen = document.getElementById("calc-screen");
 const btnBlockDiv = document.getElementById("btn-block");
 let numberButtonsHTML = '';
-let result;
+let result = [];
 let screenShow;
 // let c =  eval(1 + operators[0] + 2);
 
-screen.textContent = "123456789";
+screen.textContent = "0";
 
 numbers.map(el =>{
     numberButtonsHTML += `<button class='calc-num-button'>${el}</button>`;    
 });
 btnBlockDiv.innerHTML = numberButtonsHTML;
 
+
 function addNumAtScreen(num){
-    screen.textContent = num;
-    // console.log(num);
     
+    result += eval(num);
+    screen.textContent = eval(result);
+    console.log(result);    
 }
 const nB = document.querySelectorAll(".calc-num-button");
 
