@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Calculus";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Calculus"), url(/fonts/CalculusLCDRegular.otf) format ("opentype");
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* .exp {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+}
+
+input {
+    margin-top: 50px;
+    width: 60%;
+    padding: 10px;
+} */
+
+.calc {
+  width: 300px;
+  height: 400px;
+  background-color: #ededed;
+  border: 2px solid #ddd;
+}
+
+.calc-screen {
+  margin: 20px auto;
+  width: 90%;
+  height: 60px;
+  background-color: orange;
+  border: 2px solid rgb(231, 150, 0);
+  text-align: right;
+  font-family: "Calculus", sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.calc-btn-block {
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 200px;
+  align-items: center;
+}
+
+.calc-num-button {
+  text-align: center;
+  padding: 15px;
+  margin: 5px;
+  font-size: 18px;
+  /* border: 1px solid #ccc; */
+  cursor: pointer;
+}
