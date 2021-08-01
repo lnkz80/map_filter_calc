@@ -3,9 +3,26 @@ const operators = ['/' ,'*', '-', '+', '='];
 const screen = document.getElementById("calc-screen");
 const btnBlockDiv = document.getElementById("btn-block");
 let numberButtonsHTML = '';
-let result = [];
+let result = ['8','8','+','2','-','5.5'];
 let screenShow;
 // let c =  eval(1 + operators[0] + 2);
+let i='';
+const res = result.map(elem=>{
+    i+=elem;
+});
+
+//!Чужая функция распарсивания массива с выражением
+function addbits(s) {
+    return (s.replace(/\s/g, '').match(/[+\-]?([0-9\.]+)/g) || [])
+    .reduce(function(sum, value) {
+        return parseFloat(sum) + parseFloat(value);
+    });
+  }
+
+
+console.log(addbits(i));
+
+
 
 screen.textContent = "0";
 
@@ -17,7 +34,7 @@ btnBlockDiv.innerHTML = numberButtonsHTML;
 
 function addNumAtScreen(num){
     
-    result += eval(num);
+    // result += eval(num);
     screen.textContent = eval(result);
     console.log(result);    
 }
