@@ -1,8 +1,10 @@
 const numbers = [1,2,3,4,5,6,7,8,9, '.',0, '%'];
 const operators = ['/' ,'*', '-', '+', '='];
 const screen = document.getElementById("calc-screen");
-const btnBlockDiv = document.getElementById("btn-block");
+const btnBlockNumbersDiv = document.getElementById("btn-block-numbers");
+const btnBlockOpsDiv = document.getElementById("btn-block-operations");
 let numberButtonsHTML = '';
+let opsButtonsHTML = '';
 let result = ['8','8','+','2','-','5.5'];
 let screenShow;
 // let c =  eval(1 + operators[0] + 2);
@@ -29,7 +31,13 @@ screen.textContent = "0";
 numbers.map(el =>{
     numberButtonsHTML += `<button class='calc-num-button'>${el}</button>`;    
 });
-btnBlockDiv.innerHTML = numberButtonsHTML;
+btnBlockNumbersDiv.innerHTML = numberButtonsHTML;
+
+operators.map(el =>{
+    el === '='?bgColor='bg-blue':bgColor='';
+    opsButtonsHTML += `<button class='calc-ops-button ${bgColor}'>${el}</button>`;    
+});
+btnBlockOpsDiv.innerHTML = opsButtonsHTML;
 
 
 function addNumAtScreen(num){

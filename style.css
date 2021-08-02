@@ -5,21 +5,23 @@
 }
 
 body {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 
 .calc {
+  margin: 0 auto;
+  padding: 15px;
   width: 300px;
-  height: 400px;
+  /* height: 400px; */
   background-color: #ededed;
   border: 2px solid #ddd;
 }
 
 .calc-screen {
   margin: 20px auto;
-  width: 90%;
+  padding: 0 5px;  
   height: 60px;
   background-color: orange;
   border: 2px solid rgb(231, 150, 0);
@@ -29,12 +31,29 @@ body {
   font-weight: 500;
 }
 
-.calc-btn-block {
+.btn-block {
+  /* margin-left: 10px; */
+  display: grid;  
+  grid-template-columns: repeat(4, 1fr);    
+}
+
+.btn-block-numbers {
   margin-left: 10px;
+  margin-top: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 200px;
-  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-template-columns: repeat(3, 1fr);
+  /* width: 200px; */
+}
+
+.btn-block-operations {
+  margin: 0 auto;
+  display: grid;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  /* grid-template-columns: 1fr; */
+  width: 60px;
 }
 
 .calc-num-button {
@@ -44,4 +63,24 @@ body {
   font-size: 18px;
   /* border: 1px solid #ccc; */
   cursor: pointer;
+}
+
+.calc-ops-button {
+  text-align: center;
+  padding: 15px;
+  margin: 5px;
+  font-size: 18px;
+  /* border: 1px solid #ccc; */
+  cursor: pointer;
+}
+
+.bg-blue {
+  background-color: rgb(78, 106, 158);
+  border: 1px solid rgb(78, 106, 158);
+  color: #fff;
+}
+
+button.bg-blue:hover {
+  background-color: #fff;
+  color: rgb(78, 106, 158);  
 }
