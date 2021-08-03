@@ -1,32 +1,23 @@
-const numbers = [1,2,3,4,5,6,7,8,9, '.',0, '%'];
+const numbers = [1,2,3,4,5,6,7,8,9, '.',0, 'C'];
 const operators = ['/' ,'*', '-', '+', '='];
 const screen = document.getElementById("calc-screen");
 const btnBlockNumbersDiv = document.getElementById("btn-block-numbers");
 const btnBlockOpsDiv = document.getElementById("btn-block-operations");
 let numberButtonsHTML = '';
 let opsButtonsHTML = '';
-let result = ['8','8','+','2','-','5.5'];
+let result = [];
+screen.textContent = "0";
 let screenShow;
 // let c =  eval(1 + operators[0] + 2);
-let i='';
-const res = result.map(elem=>{
-    i+=elem;
-});
 
-//!Чужая функция распарсивания массива с выражением
-function addbits(s) {
-    return (s.replace(/\s/g, '').match(/[+\-]?([0-9\.]+)/g) || [])
-    .reduce(function(sum, value) {
-        return parseFloat(sum) + parseFloat(value);
-    });
-  }
+const exprString = result.join('');
+// console.log(math.evaluate(exprString));
 
-
-console.log(addbits(i));
+// const expr = "6/2(2+1)";
+// console.log(math.evaluate(expr));
 
 
 
-screen.textContent = "0";
 
 numbers.map(el =>{
     numberButtonsHTML += `<button class='calc-num-button'>${el}</button>`;    
@@ -40,25 +31,32 @@ operators.map(el =>{
 btnBlockOpsDiv.innerHTML = opsButtonsHTML;
 
 
-function addNumAtScreen(num){
-    
-    // result += eval(num);
-    screen.textContent = eval(result);
-    console.log(result);    
+function addNumAtScreen(num){       
+    screen.textContent == 0?screen.textContent = num:screen.textContent += num;    
 }
+
+
 const nB = document.querySelectorAll(".calc-num-button");
-
 // console.log(nB);
-
 nB.forEach(item=>{
-    item.addEventListener('click', ()=>addNumAtScreen(item.textContent));
+    // item.addEventListener('click', ()=>addNumAtScreen(item.textContent));
+    item.addEventListener('click', ()=>{
+        screen.textContent == 0?screen.textContent = item.textContent:screen.textContent += item.textContent
+    });
 });
 
 
 
 
-
-// const btn = document.getElementById("clk");
-
-// btn.addEventListener('click', ()=>el.classList.add("red"));
+//!Чужая функция распарсивания строки из массива с выражением (только + и -)
+// function addbits(s) {    
+//     return (s.replace(/\s/g, '').match(/[+\-]?([0-9\.]+)/g) || [])
+//     .reduce(function(sum, value) {
+        
+//         return parseFloat(sum) + parseFloat(value);
+        
+//     });
+//   }
+//   addbits(exprString);
+// console.log(Object.keys(screen));
 
