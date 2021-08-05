@@ -1,4 +1,4 @@
-const numbers = [1,2,3,4,5,6,7,8,9, '.',0, 'C'];
+const numbers = [1,2,3,4,5,6,7,8,9,'.',0,'C'];
 const operators = ['/' ,'*', '-', '+', '='];
 const screen = document.getElementById("calc-screen");
 const btnBlockNumbersDiv = document.getElementById("btn-block-numbers");
@@ -11,12 +11,12 @@ let screenShow;
 // let c =  eval(1 + operators[0] + 2);
 
 const exprString = result.join('');
+
+console.log([...numbers,...operators]);
 // console.log(math.evaluate(exprString));
 
 // const expr = "6/2(2+1)";
 // console.log(math.evaluate(expr));
-
-
 
 
 numbers.map(el =>{
@@ -25,7 +25,7 @@ numbers.map(el =>{
 btnBlockNumbersDiv.innerHTML = numberButtonsHTML;
 
 operators.map(el =>{
-    el === '='?bgColor='bg-blue':bgColor='';
+    el === '='?bgColor='bg-blue':bgColor='';    
     opsButtonsHTML += `<button class='calc-ops-button ${bgColor}'>${el}</button>`;    
 });
 btnBlockOpsDiv.innerHTML = opsButtonsHTML;
@@ -37,12 +37,14 @@ function addNumAtScreen(num){
 
 
 const nB = document.querySelectorAll(".calc-num-button");
-// console.log(nB);
-nB.forEach(item=>{
+const oB = document.querySelectorAll(".calc-ops-button");
+const allButtons = [...nB, ...oB]
+// console.log(allButtons);
+allButtons.forEach(item=>{
     // item.addEventListener('click', ()=>addNumAtScreen(item.textContent));
     item.addEventListener('click', ()=>{
         screen.textContent == 0?screen.textContent = item.textContent:screen.textContent += item.textContent
-    });
+    }); 
 });
 
 
