@@ -9,6 +9,10 @@ class Calculator {
     //RenderButtons
     this.renderButtons(this.numbers, this.btnBlockNumbersDiv);
     this.renderButtons(this.operators, this.btnBlockOpsDiv);
+
+    this.addListenersOnButtons(this.btnBlockNumbersDiv);
+    this.addListenersOnButtons(this.btnBlockOpsDiv);
+    // console.log(this.btnBlockNumbersDiv.children);
   }
 
   renderButtons(arrNodes, innerNode) {
@@ -19,6 +23,14 @@ class Calculator {
     });
     innerNode.innerHTML = html;
   }
+
+  addListenersOnButtons(divBlockId) {
+    divBlockId.children.forEach((el) => {
+      el.addEventListener("click", () => {
+        console.log(el.textContent);
+      });
+    });
+  }
 }
 
-const coolCalc = new Calculator();
+const Calc = new Calculator();
